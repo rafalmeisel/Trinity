@@ -21,11 +21,11 @@
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="{{ image.picture.url }}">
         <div class="card-body">
-            <h5 class="card-title">{{ image.name }}</h5>
-            <h7 class="card-category">{{ image.category }}</h7>
-            <p class="card-text">{{ image.describe }}</p>
+            <h5 class="card-title">Nazwa: {{ image.name }}</h5>
+            <p class="card-category">Kategoria: {{ image.category }}</p>
+            <p class="card-text">Opis: {{ image.describe }}</p>
+            <p class="card-title">Autor: {{image.author}}</p>
             <div class="card-footer bg-transparent border-dark">
-                <p class="card-title">{{image.author}}</p>
                 <center>
                     <a href="update/{{image.id}}" class="btn btn-warning" id='{{image.id}}'>edit</a>
                     <a href="delete/{{image.id}}" class="btn btn-danger" id='{{image.id}}'>delete</a>
