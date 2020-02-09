@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+
 from .models import Image
 from .forms import ImageCreate
 from django.http import HttpResponse
@@ -24,23 +25,25 @@ def upload(request):
     else:
         return render(request, 'image/upload_form.html', {'upload_form': upload})
 
+
 def update_image(request, image_id):
     image_id = int(image_id)
     try:
-        image_sel = Image.objects.get(id = image_id)
+        image_sel = Image.objects.get(id=image_id)
     except Image.DoesNotExist:
         return redirect('index')
-    image_form = ImageCreate(request.POST or None, instance = image_sel)
+    image_form = ImageCreate(request.POST or None, instance=image_sel)
     if image_form.is_valid():
         image_form.save()
         return redirect('index')
-    return render (request, 'image/upload_form.html', {'upload_form':image_form})
+    return render(request, 'image/upload_form.html', {'upload_form': image_form})
+
 
 def delete_image(request, image_id):
     image_id = int(image_id)
 
     try:
-        image_sel = Image.objects.get(id = image_id)
+        image_sel = Image.objects.get(id=image_id)
     except Image.DoesNotExist:
         return redirect('index')
     image_sel.delete()
