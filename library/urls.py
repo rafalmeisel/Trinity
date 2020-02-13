@@ -6,6 +6,7 @@ from library.api import views
 
 router = routers.DefaultRouter()
 router.register(r'books', views.BookViewSet)
+router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
