@@ -5,3 +5,4 @@ class Book(models.Model):
     description = models.CharField(max_length=256)
     author = models.CharField(max_length=64)
     year = models.IntegerField()
+    amount = models.IntegerField()
